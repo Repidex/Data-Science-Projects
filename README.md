@@ -24,3 +24,14 @@ mobility in a city.
 The Evaluation metric for this project is Root Mean Squared Logarithmic
 Error (RMSLE). The RMSLE is calculated as:
 
+For the ith sample, Squared Logarithmic Error is calculated as SLE = (log(prediction + 1) - log(actual + 1))^2. 
+RMSLE is then sqrt(mean(squared logarithmic errors)). Note the '+1' in the calculation of SLE which avoids taking the logarithm of 0 for data which may include 0s.
+
+RMSLE - Root Mean Squared Log Error .
+This metric is used when the Target variable is converted into Log(Target).
+so instead of looking at RMSLE, you can look for RMSE (generally we use this). You can convert the predictions to ypred = exp(predictions)
+and then np.sqrt(mean_squared_error(y_test, ypred)) will give the final RMSE.
+
+# Python Code
+from sklearn.metrics import mean_squared_log_error
+np.sqrt(mean_squared_log_error( y_test, predictions ))
