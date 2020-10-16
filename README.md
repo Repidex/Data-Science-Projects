@@ -32,6 +32,3 @@ This metric is used when the Target variable is converted into Log(Target).
 so instead of looking at RMSLE, you can look for RMSE (generally we use this). You can convert the predictions to ypred = exp(predictions)
 and then np.sqrt(mean_squared_error(y_test, ypred)) will give the final RMSE.
 
-# Python Code
-from sklearn.metrics import mean_squared_log_error
-np.sqrt(mean_squared_log_error( y_test, predictions ))
